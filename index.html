@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Watch</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+      }
+      .watch {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .watch_design {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .time {
+        background: black;
+        color: #fff;
+        text-align: center;
+        padding: 10px 50px;
+        margin-right: 15px;
+        border-radius: 10%;
+      }
+      .time:last-child {
+        margin-right: 0;
+      }
+      .digit {
+        font-size: 100px;
+        font-weight: bold;
+      }
+      .time h3 {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="watch">
+      <div class="watch_design">
+        <div class="time">
+          <div class="digit" id="hours">00</div>
+          <h3>Hours</h3>
+        </div>
+
+        <div class="time">
+          <div class="digit" id="minutes">00</div>
+          <h3>Minutes</h3>
+        </div>
+
+        <div class="time">
+          <div class="digit" id="seconds">00</div>
+          <h3>Seconds</h3>
+        </div>
+      </div>
+    </div>
+    <script>
+      const hour = document.getElementById("hours");
+      const minute = document.getElementById("minutes");
+      const second = document.getElementById("seconds");
+
+      setInterval(function () {
+        var date = new Date();
+
+        const h = date.getHours();
+        const m = date.getMinutes();
+        const s = date.getSeconds();
+
+        hour.innerText = h;
+        minute.innerText = m;
+        second.innerText = s;
+
+
+      }, 1000);
+    </script>
+  </body>
+</html>
