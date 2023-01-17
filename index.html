@@ -60,25 +60,56 @@
           <div class="digit" id="seconds">00</div>
           <h3>Seconds</h3>
         </div>
+        
+        <div class="time">
+          <div class="digit" id="session">  </div>
+        </div>
       </div>
     </div>
     <script>
       const hour = document.getElementById("hours");
       const minute = document.getElementById("minutes");
       const second = document.getElementById("seconds");
+      const ampm = document.getElementById("session");
 
       setInterval(function () {
         var date = new Date();
 
-        const h = date.getHours();
-        const m = date.getMinutes();
-        const s = date.getSeconds();
+        let h = date.getHours();
+        let m = date.getMinutes();
+        let s = date.getSeconds();
+          session = "AM";
+
+        if( h > 12 ){
+          h = h - 12;
+          session = "PM";
+
+        }
+
+        // will be added 0 before digit is single
+        h = h.toString();
+        h_length = h.length;
+        if( h_length == 1 ){
+          h = "0" + h;
+        }
+
+        // Will be added 0 before digit is single
+        m = m.toString();
+        m_length = m.length;
+        if(m_length == 1 ){
+          m = "0" + m ;
+        }
+
+        s = s.toString();
+        s_length = s.length;
+        if(s_length == 1){
+          s = "0" + s;
+        }
 
         hour.innerText = h;
         minute.innerText = m;
         second.innerText = s;
-
-
+        ampm.innerText = session;
       }, 1000);
     </script>
   </body>
